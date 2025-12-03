@@ -171,6 +171,9 @@ def _init_state():
         st.session_state.model_name = None
     if "uploaded_files" not in st.session_state:
         st.session_state.uploaded_files = []
+    if "api_keys" not in st.session_state:
+        st.session_state.api_keys = {
+            "OpenAI": None, "Groq": None, "Gemini": None}
     # no file restriction; search across all docs
 
 
@@ -185,17 +188,14 @@ def _build_sidebar(cfg: AppConfig):
     )
     model_name = st.text_input("Model name", value=default_model)
 
-    # API key handling
-    env_key_name = (
-        "OPENAI_API_KEY" if provider == "OpenAI" else "GROQ_API_KEY" if provider == "Groq" else "GOOGLE_API_KEY"
-    )
-    current_key = os.getenv(env_key_name)
-    if not current_key:
-        key_input = st.text_input(f"Enter {provider} API Key", type="password")
-        if key_input:
-            set_env_if_provided(env_key_name, key_input)
-            current_key = key_input
-            st.success(f"{provider} API key set for this session")
+    # API key handling (per-session, not global env)
+    current_key = st.session_state.api_keys.get(provider)
+    key_input = st.text_input(
+        f"Enter {provider} API Key", value=current_key or "", type="password")
+    if key_input and key_input != current_key:
+        st.session_state.api_keys[provider] = key_input
+        current_key = key_input
+        st.success(f"{provider} API key stored for this session")
 
     st.session_state.provider = provider
     st.session_state.model_name = model_name
