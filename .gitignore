@@ -1,0 +1,24 @@
+# Environment and secrets
+.env
+.env.local
+
+# Vector DB persistence
+chroma_db/
+
+# Uploaded files
+uploaded_files/
+
+# Python cache and build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Streamlit
+.streamlit/
+
+# OS/Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
