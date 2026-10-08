@@ -55,9 +55,7 @@ class HybridIndex:
     ) -> list[Hit]:
         if not self.chunks:
             return []
-        allowed = (
-            np.array([c.doc_id in doc_ids for c in self.chunks]) if doc_ids else None
-        )
+        allowed = np.array([c.doc_id in doc_ids for c in self.chunks]) if doc_ids else None
         sims = self._matrix @ self.embedder.embed_query(query)
         bm = np.asarray(self._bm25.scores(query), dtype=np.float32)
         if allowed is not None:

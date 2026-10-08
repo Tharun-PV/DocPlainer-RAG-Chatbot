@@ -15,10 +15,18 @@ __pycache__/
 *.pyd
 *.log
 
-# Streamlit
-.streamlit/
+# Streamlit (config.toml is committed; secrets are not)
+.streamlit/secrets.toml
 
 # OS/Editor junk
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+eval_results.json
+.fastembed_cache/

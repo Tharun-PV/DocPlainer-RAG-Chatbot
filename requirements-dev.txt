@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest>=8
+ruff>=0.5
+reportlab>=4
+pypdf>=4
+pillow>=10

@@ -32,9 +32,7 @@ class Retriever:
 
     def retrieve(self, query: str, doc_ids: set[str] | None = None) -> RetrievalResult:
         cfg = self.cfg
-        candidates = self.index.search(
-            query, cfg.dense_k, cfg.sparse_k, cfg.rrf_k, doc_ids=doc_ids
-        )
+        candidates = self.index.search(query, cfg.dense_k, cfg.sparse_k, cfg.rrf_k, doc_ids=doc_ids)
         pool = candidates[: cfg.rerank_candidates]
         if not pool:
             return RetrievalResult([], False, {"candidates": 0, "reranked": False})

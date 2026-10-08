@@ -134,9 +134,7 @@ class _Chunker:
         self.flush()
         self.carry = ""
         grid = tables.parse_markdown_table(markdown)
-        summary = (
-            self.summarizer(markdown) if self.summarizer else tables.describe(grid, caption)
-        )
+        summary = self.summarizer(markdown) if self.summarizer else tables.describe(grid, caption)
         sec = self.section()
         for part in _split_table(markdown, self.cfg.table_max_chars):
             shown = f"{caption}\n{part}" if caption else part

@@ -1,0 +1,26 @@
+name: Deploy to Hugging Face Space
+
+# One-time setup (all free):
+#   1. Create a Space at huggingface.co/new-space  (SDK: Docker, hardware: CPU basic)
+#   2. Repo secret   HF_TOKEN  = a Hugging Face access token with write access
+#   3. Repo variable HF_SPACE  = <hf-username>/<space-name>
+#   4. In the Space settings add secrets GROQ_API_KEY / GOOGLE_API_KEY (free keys, no billing)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: ${{ vars.HF_SPACE != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE: ${{ vars.HF_SPACE }}
+        run: |
+          git push --force "https://user:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE}" HEAD:main

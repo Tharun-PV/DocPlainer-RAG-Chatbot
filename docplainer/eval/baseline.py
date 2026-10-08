@@ -62,8 +62,7 @@ class BaselineRetriever:
         sims = self.index._matrix @ self.index.embedder.embed_query(query)
         order = sims.argsort()[::-1][: self.k]
         hits = [
-            Hit(self.index.chunks[i], float(sims[i]), float(sims[i]), float(sims[i]))
-            for i in order
+            Hit(self.index.chunks[i], float(sims[i]), float(sims[i]), float(sims[i])) for i in order
         ]
         return RetrievalResult(hits=hits, confident=True, trace={"baseline": True})
 

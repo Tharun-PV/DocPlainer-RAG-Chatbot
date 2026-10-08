@@ -9,9 +9,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     """All tunables, overridable with DOCPLAINER_* environment variables or a .env file."""
 
-    model_config = SettingsConfigDict(
-        env_prefix="DOCPLAINER_", env_file=".env", extra="ignore"
-    )
+    model_config = SettingsConfigDict(env_prefix="DOCPLAINER_", env_file=".env", extra="ignore")
 
     # --- models (all run locally on CPU) ---
     embedding_model: str = "BAAI/bge-small-en-v1.5"
@@ -47,6 +45,12 @@ class Settings(BaseSettings):
     demo_question_limit: int = 15
     demo_upload_limit: int = 3
     web_fallback: bool = True
+
+    # Free-tier chat models. Provider catalogues change; override via env if one is retired.
+    groq_model: str = "llama-3.3-70b-versatile"
+    gemini_model: str = "gemini-2.5-flash"
+    openrouter_model: str = "meta-llama/llama-3.3-70b-instruct:free"
+    llm_timeout_s: float = 45.0
 
     # API keys come from secrets/env; never committed.
     groq_api_key: str | None = Field(default=None, validation_alias="GROQ_API_KEY")
