@@ -1,0 +1,26 @@
+{"id":"txt-01","type":"text","question":"How many days of paid annual leave do employees get?","gold":[{"file":"northwind_handbook.pdf","page":1,"contains":"24 days"}]}
+{"id":"txt-02","type":"text","question":"How many unused leave days can be carried over to the next year?","gold":[{"file":"northwind_handbook.pdf","page":1,"contains":"maximum of 5 days"}]}
+{"id":"txt-03","type":"text","question":"What is the home office stipend for remote workers?","gold":[{"file":"northwind_handbook.pdf","page":1,"contains":"600 euros"}]}
+{"id":"txt-04","type":"text","question":"Within how many hours must a security incident be reported?","gold":[{"file":"northwind_handbook.pdf","page":2,"contains":"within 2 hours"}]}
+{"id":"txt-05","type":"text","question":"What is the hotel spending cap per night in tier-1 cities?","gold":[{"file":"northwind_handbook.pdf","page":2,"contains":"180 euros"}]}
+{"id":"txt-06","type":"text","question":"How long is parental leave for the primary caregiver?","gold":[{"file":"northwind_handbook.pdf","page":1,"contains":"20 weeks"}]}
+{"id":"txt-07","type":"text","question":"How many days per week may employees work remotely?","gold":[{"file":"northwind_handbook.pdf","page":1,"contains":"3 days per week"}]}
+{"id":"txt-08","type":"text","question":"What is the minimum password length?","gold":[{"file":"northwind_handbook.pdf","page":2,"contains":"14 characters"}]}
+{"id":"tbl-01","type":"table","question":"What was Europe's revenue in FY2024?","gold":[{"file":"northwind_annual_report.pdf","page":1,"contains":"141.9"}]}
+{"id":"tbl-02","type":"table","question":"What was the total revenue growth from FY2023 to FY2024?","gold":[{"file":"northwind_annual_report.pdf","page":1,"contains":"22.5%"}]}
+{"id":"tbl-03","type":"table","question":"How much was spent on research and development in FY2024?","gold":[{"file":"northwind_annual_report.pdf","page":1,"contains":"71.6"}]}
+{"id":"tbl-04","type":"table","question":"How many people worked in Engineering at the end of 2024?","gold":[{"file":"northwind_annual_report.pdf","page":2,"contains":"498"}]}
+{"id":"tbl-05","type":"table","question":"What was the revenue growth in Asia Pacific?","gold":[{"file":"northwind_annual_report.pdf","page":1,"contains":"12.1%"}]}
+{"id":"tbl-06","type":"table","question":"What was the Sales department headcount in 2023?","gold":[{"file":"northwind_annual_report.pdf","page":2,"contains":"145"}]}
+{"id":"tbl-07","type":"table","question":"How much did manufacturing overhead cost in FY2024?","gold":[{"file":"northwind_annual_report.pdf","page":1,"contains":"58.2"}]}
+{"id":"txt-09","type":"text","question":"Where did the company open a new assembly plant?","gold":[{"file":"northwind_annual_report.pdf","page":2,"contains":"Gdansk"}]}
+{"id":"scn-01","type":"scan","question":"What pick rate did the Hamburg pilot of the Atlas robot reach?","gold":[{"file":"northwind_scanned_memo.pdf","page":1,"contains":"612"}]}
+{"id":"scn-02","type":"scan","question":"What was the total cost of the pilot?","gold":[{"file":"northwind_scanned_memo.pdf","page":1,"contains":"297000"}]}
+{"id":"scn-03","type":"scan","question":"What is the budget ceiling for the full rollout at the Gdansk plant?","gold":[{"file":"northwind_scanned_memo.pdf","page":1,"contains":"1.2 million"}]}
+{"id":"scn-04","type":"scan","question":"By what percentage were mis-picks reduced at the pilot site?","gold":[{"file":"northwind_scanned_memo.pdf","page":1,"contains":"38"}]}
+{"id":"scn-05","type":"scan","question":"How much was the integration work for the pilot?","gold":[{"file":"northwind_scanned_memo.pdf","page":1,"contains":"95000"}]}
+{"id":"una-01","type":"unanswerable","question":"What is the company policy on bringing pets to the office?","gold":[]}
+{"id":"una-02","type":"unanswerable","question":"Who is the CEO of Northwind Robotics?","gold":[]}
+{"id":"una-03","type":"unanswerable","question":"What was the revenue in FY2019?","gold":[]}
+{"id":"una-04","type":"unanswerable","question":"What is the capital city of Australia?","gold":[]}
+{"id":"una-05","type":"unanswerable","question":"What is the company's stock ticker symbol?","gold":[]}

@@ -57,5 +57,6 @@ class Hit:
     chunk: Chunk
     score: float  # final ordering score
     relevance: float  # normalised 0..1, used for the "no answer" threshold
+    dense_score: float = 0.0  # cosine similarity of the query and chunk embeddings
     dense_rank: int | None = None
     sparse_rank: int | None = None

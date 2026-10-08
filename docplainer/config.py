@@ -36,8 +36,11 @@ class Settings(BaseSettings):
     rerank_candidates: int = 20
     final_k: int = 6
     rrf_k: int = 60
-    # Normalised relevance (0..1) below which the corpus is treated as "no answer".
+    # Relevance below which the corpus is treated as "no answer". With the reranker this is a
+    # sigmoid of the cross-encoder logit; without it, the dense cosine similarity. Both are
+    # tuned with `python -m docplainer.eval --sweep`.
     min_relevance: float = 0.25
+    min_dense_cosine: float = 0.55
 
     # --- generation / demo guard rails ---
     history_turns: int = 4
