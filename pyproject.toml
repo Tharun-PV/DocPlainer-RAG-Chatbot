@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docplainer"
+version = "2.0.0"
+description = "Document Q&A with hybrid retrieval, OCR, table-aware chunking and cited answers."
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic-settings>=2.2",
+    "numpy>=1.26",
+    "pymupdf>=1.24",
+    "python-docx>=1.1",
+    "python-pptx>=0.6.23",
+    "fastembed>=0.4",
+    "httpx>=0.27",
+    "ddgs>=9.0",
+]
+
+[project.optional-dependencies]
+ocr = ["rapidocr-onnxruntime>=1.3"]
+ui = ["streamlit>=1.40"]
+dev = ["pytest>=8", "ruff>=0.5", "reportlab>=4", "pypdf>=4", "pillow>=10"]
+
+[tool.setuptools.packages.find]
+include = ["docplainer*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: needs model downloads or OCR"]
