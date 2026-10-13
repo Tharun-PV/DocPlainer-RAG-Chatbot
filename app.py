@@ -54,6 +54,7 @@ def llm_keys(rag: RagSession) -> dict[str, str | None]:
         return {
             "groq": cfg.groq_api_key,
             "gemini": cfg.google_api_key,
+            "nvidia": cfg.nvidia_api_key,
             "openrouter": cfg.openrouter_api_key,
         }
     return st.session_state.get("byok", {})
@@ -136,6 +137,7 @@ def sidebar(rag: RagSession) -> dict:
             st.session_state.byok = {
                 "groq": st.text_input("Groq key", type="password", key="k_groq") or None,
                 "gemini": st.text_input("Gemini key", type="password", key="k_gem") or None,
+                "nvidia": st.text_input("NVIDIA key", type="password", key="k_nv") or None,
                 "openrouter": st.text_input("OpenRouter key", type="password", key="k_or") or None,
             }
         elif rag.questions_left is not None:

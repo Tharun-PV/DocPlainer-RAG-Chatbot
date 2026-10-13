@@ -80,5 +80,18 @@ def test_stream_fallback_only_before_first_token():
 def test_build_chain_skips_providers_without_keys():
     chain = build_chain({"groq": "k", "gemini": None, "openrouter": ""}, Settings())
     assert [c.name for c in chain.clients] == ["groq"]
+
+
+def test_nvidia_is_an_openai_compatible_provider_tried_after_groq_and_gemini():
+    keys = {"nvidia": "nvapi-x", "groq": "g", "gemini": "k", "openrouter": "o"}
+    chain = build_chain(keys, Settings(nvidia_model="meta/some-model"))
+    assert [c.name for c in chain.clients] == ["groq", "gemini", "nvidia", "openrouter"]
+    nv = chain.clients[2]
+    assert nv.base_url == "https://integrate.api.nvidia.com/v1" and nv.model == "meta/some-model"
+
+
+def test_nvidia_key_is_read_from_the_environment(monkeypatch):
+    monkeypatch.setenv("NVIDIA_API_KEY", "nvapi-abc")
+    assert Settings().nvidia_api_key == "nvapi-abc"
     with pytest.raises(ValueError):
         build_chain({}, Settings())

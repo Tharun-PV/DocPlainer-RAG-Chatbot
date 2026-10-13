@@ -156,6 +156,7 @@ def build_chain(keys: dict[str, str | None], settings: Settings | None = None) -
             cfg.gemini_model,
             None,
         ),
+        ("nvidia", "https://integrate.api.nvidia.com/v1", cfg.nvidia_model, None),
         (
             "openrouter",
             "https://openrouter.ai/api/v1",

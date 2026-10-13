@@ -80,9 +80,12 @@ streamlit run app.py
 Click **Load sample documents** to try it immediately, or upload your own. Models download on
 first run (about 200 MB, cached afterwards).
 
-Free keys (no billing needed): [Groq](https://console.groq.com) and
-[Google AI Studio](https://aistudio.google.com). OpenRouter's `:free` models also work. If one
-provider is rate-limited, the app moves to the next.
+Free keys (no billing needed): [Groq](https://console.groq.com),
+[Google AI Studio](https://aistudio.google.com) and [NVIDIA](https://build.nvidia.com)
+(`NVIDIA_API_KEY`; choose the model with `DOCPLAINER_NVIDIA_MODEL`). OpenRouter's `:free`
+models also work. Providers are tried in that order: if one is rate-limited, the app moves to
+the next. NVIDIA's hosted endpoints are intended for prototyping and testing and are
+rate-limited, which suits a demo but is not a production service.
 
 ## Evaluate
 

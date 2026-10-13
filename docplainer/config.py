@@ -50,12 +50,15 @@ class Settings(BaseSettings):
     groq_model: str = "llama-3.3-70b-versatile"
     gemini_model: str = "gemini-2.5-flash"
     openrouter_model: str = "meta-llama/llama-3.3-70b-instruct:free"
+    # NVIDIA build.nvidia.com hosted API (OpenAI-compatible); any catalogue chat model works.
+    nvidia_model: str = "meta/llama-3.3-70b-instruct"
     llm_timeout_s: float = 45.0
 
     # API keys come from secrets/env; never committed.
     groq_api_key: str | None = Field(default=None, validation_alias="GROQ_API_KEY")
     google_api_key: str | None = Field(default=None, validation_alias="GOOGLE_API_KEY")
     openrouter_api_key: str | None = Field(default=None, validation_alias="OPENROUTER_API_KEY")
+    nvidia_api_key: str | None = Field(default=None, validation_alias="NVIDIA_API_KEY")
 
 
 @lru_cache
